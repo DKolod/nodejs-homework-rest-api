@@ -6,7 +6,6 @@ const userSchema = Joi.object({
     minDomainSegments: 2,
     tlds: { allow: ["com", "net"] },
   }),
-
   subscription: Joi.string().allow("starter", "pro", "business"),
   token: Joi.string(),
 });
@@ -15,8 +14,12 @@ const subscriptionSchema = Joi.object({
   subscription: Joi.string().pattern(/^(starter|pro|business)$/),
 });
 
+const verifySchema = Joi.object({
+  email: Joi.string().email().required(),
+});
 
 module.exports = {
   userSchema,
   subscriptionSchema,
+  verifySchema,
 };
