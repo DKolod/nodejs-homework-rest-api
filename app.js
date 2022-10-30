@@ -1,15 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
-
-const { unknownRouteHandler, errorHandler } = require("./helpers");
-
-const { contactsRouter, authRouter } = require("./routes");
-
-const express = require("express");
-const logger = require("morgan");
-const cors = require("cors");
-
 const { unknownRouteHandler, errorHandler } = require("./helpers");
 
 const { contactsRouter, authRouter, usersRouter } = require("./routes");
@@ -29,6 +20,5 @@ app.use("/api/auth", authRouter);
 
 app.use(unknownRouteHandler);
 app.use(errorHandler);
-
 
 module.exports = app;
