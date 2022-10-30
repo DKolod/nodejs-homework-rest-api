@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-
 const bcrypt = require("bcrypt");
+
 const saltRounds = 10;
 
 const userShema = mongoose.Schema(
@@ -23,6 +23,14 @@ const userShema = mongoose.Schema(
     avatarURL: {
       type: String,
       required: true,
+    },
+    verify: {
+      type: Boolean,
+      default: false,
+    },
+    verificationToken: {
+      type: String,
+      required: [true, "Verify token is required"],
     },
   },
   { versionKey: false, timestamps: true }
