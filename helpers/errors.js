@@ -5,6 +5,4 @@ const RequestError = (status, message) => {
   return error;
 };
 
-module.exports = {
-  RequestError,
-};
+module.exports = RequestError;
